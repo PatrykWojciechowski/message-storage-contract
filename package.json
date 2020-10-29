@@ -1,0 +1,20 @@
+{
+  "name": "truffle-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "besu-dev": "besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins=\"all\" --host-whitelist=\"*\" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.2.0",
+    "@truffle/hdwallet-provider": "^1.1.1",
+    "chai": "^4.2.0",
+    "truffle-assertions": "^0.9.2"
+  }
+}
