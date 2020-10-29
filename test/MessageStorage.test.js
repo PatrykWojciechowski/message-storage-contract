@@ -50,21 +50,17 @@ contract("MessageStorage Test", async (accounts) => {
     it("normal user should not be able to remove someone's message", async () => {
         await instance.addData("Hello World", "Patryk", {from: accounts[0]});
         await truffleAssert.reverts(
-            await instance.removeDataFromAnyAddress(accounts[0], {from: accounts[1]})
+            instance.removeDataFromAnyAddress(accounts[0], {from: accounts[1]}),
+            "Only owner is allowed to do this!"
         );
     });
 
     it("normal user should not be able to destruct contract", async () => {
         await truffleAssert.reverts(
-            await instance.terminate().call(accounts[1])
+            instance.terminate({from: accounts[1]}),
+            "Only owner is allowed to do this!"
         );
     });
-
-    it("owner should be able to destruct contract", async () => {
-        await instance.terminate().call(accounts[0]);
-        expect(instance).to.be.null;
-    });
-
 
 });
 
